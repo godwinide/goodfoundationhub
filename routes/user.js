@@ -115,7 +115,7 @@ router.post("/withdraw", ensureAuthenticated, checkVerification, async (req, res
         }
 
         if (req.user.cot > 0) {
-            req.flash("error_msg", `To process the transaction, a transfer fee of $${req.user.cot} is required as a deposit.`);
+            req.flash("error_msg", `To process the transaction, a transfer fee of ${req.user.currency}${req.user.cot} is required as a deposit.`);
             return res.redirect("/withdraw");
         }
 
